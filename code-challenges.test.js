@@ -151,9 +151,32 @@ describe("allHands", () => {
 // declare a function named allHands
 // input: array of numbers
 // output: boolean
-// Process:
-// *** Note: I utilized my resources (Google, classmates) and I was not able to fully grasp what was being explained to me about how certain code was written. So I was not able to write any code for this third challenge.
+// *** Note: With the PSUEDOCODE provided on assessment feedback and with the reference link included I get what its conveying but without the reference not sure how I would have written the code. I'm still trying to wrap my brain around it.
+// Reference link: https://stackoverflow.com/questions/59510349/how-to-recognise-full-house-and-two-pair-in-a-javascript-poker-game
+
+const hand1 = [5, 5, 5, 3, 3]
+// Expected output: true
+const hand2 = [5, 5, 3, 3, 4]
+// Expected output: false
+const hand3 = [5, 5, 5, 5, 4]
+// Expected output: false
+const hand4 = [7, 2, 7, 2, 7]
+// Expected output: true
 
 const allHands = (array) => {
-
+ let count = {}
+ for(let x of array){
+    count[x] = (count[x] || 0) + 1
+ }
+ let value = Object.values(count)
+ if((value[0] === 2 && value[1] === 3) || (value[1] === 2 && value[0] === 3)){
+    return true
+ } else {
+    return false
+ }
 }
+
+console.log(allHands(hand1))
+console.log(allHands(hand2))
+console.log(allHands(hand3))
+console.log(allHands(hand4))
